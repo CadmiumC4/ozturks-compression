@@ -10,10 +10,16 @@ namespace CadmiumC4.IO.Compression
 {
    partial class Compote
    {
-       public Compote()
+
+       public Compote(int force)
        {
+           _forceField = CalculateForce(force);
        }
-       public Compote(DirectoryInfo tempFolder)
+       public Compote():this(3)
+       {
+           
+       }
+       public Compote(DirectoryInfo tempFolder):this(3)
        {
            TemporaryFolder = tempFolder;
        }
@@ -105,6 +111,7 @@ namespace CadmiumC4.IO.Compression
                //Close the fragment file.
                fragFile.Close();
            }
+           
        }
 
    }
