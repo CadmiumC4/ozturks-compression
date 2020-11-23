@@ -9,21 +9,7 @@ using System.IO.Compression;
 namespace CadmiumC4.IO.Compression
 {
    partial class Compote
-   {
-
-       public Compote(int force)
-       {
-           _forceField = CalculateForce(force);
-       }
-       public Compote():this(3)
-       {
-           
-       }
-       public Compote(DirectoryInfo tempFolder):this(3)
-       {
-           TemporaryFolder = tempFolder;
-       }
-       
+   {       
        int _forceField;
        
        public DirectoryInfo TemporaryFolder
@@ -31,7 +17,7 @@ namespace CadmiumC4.IO.Compression
            get;
            set; //maybe be replaced with 'init'.
        }
-       protected int CalculateForce(int force)
+       protected partial int CalculateForce(int force)
        {
             /* variables for compression
 
