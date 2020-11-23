@@ -1,41 +1,57 @@
-# Compiled Lua sources
-luac.out
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+# Created by https://www.toptal.com/developers/gitignore/api/perl,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=perl,linux
 
-# Object files
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Perl ###
+!Build/
+.last_cover_stats
+/META.yml
+/META.json
+/MYMETA.*
 *.o
-*.os
-*.ko
-*.obj
-*.elf
+*.pm.tdy
+*.bs
 
-# Precompiled Headers
-*.gch
-*.pch
+# Devel::Cover
+cover_db/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+# Devel::NYTProf
+nytprof.out
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Dizt::Zilla
+/.build/
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Module::Build
+_build/
+Build
+Build.bat
 
+# Module::Install
+inc/
+
+# ExtUtils::MakeMaker
+/blib/
+/_eumm/
+/*.gz
+/Makefile
+/Makefile.old
+/MANIFEST.bak
+/pm_to_blib
+/*.zip
+
+# End of https://www.toptal.com/developers/gitignore/api/perl,linux
