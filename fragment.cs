@@ -17,6 +17,9 @@ namespace CadmiumC4.IO.Compression
        {
            TemporaryFolder = tempFolder;
        }
+       
+       int _forceField;
+       
        public DirectoryInfo TemporaryFolder
        {
            get;
@@ -47,7 +50,17 @@ namespace CadmiumC4.IO.Compression
             return forceval;
 
        }
-       private void FragmentFile(FileStream file, int power)
+       
+       public int Force
+       {
+           get => _forceField;
+           set
+           {
+               _forceField = CalculateForce(value);
+           }
+       }
+       
+       private void FragmentFile(FileStream file)
        {
            /*The fragment array.*/
             byte[] bytes;
@@ -58,9 +71,9 @@ namespace CadmiumC4.IO.Compression
            //Let a temporary variable to keep the fragment.
             FileStream fragFile;
            /*First of all, we need to calculate the exponent.*/
-            int byteCount = CalculateForce(power);
+            int byteCount = _forceField;
             /*and the fragment count.*/
-            int fragmentCount = file.Length / CalculateForce(power);
+            int fragmentCount = file.Length / _forceField;
             /*lastly, add the file-name array*/
            string[] fileNames = new string[fragmentCount];
            /*begin the fragmentation of the file*/
