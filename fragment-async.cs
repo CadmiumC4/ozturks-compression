@@ -25,7 +25,7 @@ namespace CadmiumC4.IO.Compression
         set;
       }
     
-      private async void FragmentFile(FileStream file)
+      private async void FragmentFileAsync(FileStream file)
        {
            /*The fragment array.*/
             byte[] bytes;
