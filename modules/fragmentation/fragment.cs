@@ -10,7 +10,7 @@ namespace CadmiumC4.IO.Compression
 {
    partial class Compote
    {       
-       int _forceField;
+       private int _forceField;
        
        public DirectoryInfo TemporaryFolder
        {
