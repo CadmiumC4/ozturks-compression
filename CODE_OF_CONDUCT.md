@@ -7,7 +7,12 @@ contributors and maintainers pledge to making participation in our project and
 our community a harassment-free experience for everyone, regardless of age, body
 size, disability, ethnicity, sex characteristics, gender identity and expression,
 level of experience, education, socio-economic status, nationality, personal
-appearance, race, religion, or sexual identity and orientation.
+appearance, race, religion, political opinion, or sexual identity and orientation.
+
+(These conditions are added to Öztürk's Ethical License's first section.)
+<br>
+(It is not published, therefore, do not try to search it.)
+
 
 ## Our Standards
 
