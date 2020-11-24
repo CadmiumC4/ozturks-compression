@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Yiğit Cemal Öztürk's Personal Mail Account
+    url: mailto:ozturkyigitcemal@outlook.com.tr
+    about: Please ask and answer questions here.
+  - name: GitHub Repository Of Öztürk's Compression
+    url: https://github.com/CadmiumC48/ozturks-compression/
+    about: Please report security vulnerabilities here.
