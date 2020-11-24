@@ -13,6 +13,7 @@ appearance, race, religion, political opinion, or sexual identity and orientatio
 <br>
 (It is not published, therefore, do not try to search it.)
 
+
 ## Our Standards
 
 Examples of behavior that contributes to creating a positive environment
