@@ -12,11 +12,6 @@ namespace CadmiumC4.IO.Compression
    {       
        private int _forceField;
        
-       public DirectoryInfo TemporaryFolder
-       {
-           get;
-           set; //maybe be replaced with 'init'.
-       }
        protected partial int CalculateForce(int force)
        {
             /* variables for compression
