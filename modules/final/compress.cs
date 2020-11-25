@@ -14,7 +14,8 @@ namespace CadmiumC4.IO.Compression
           ///</summary>
           public void Compress(FileInfo file)
           {
-            
+                FragmentFile(file);
+                
           }
     }
 }
