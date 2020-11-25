@@ -12,7 +12,7 @@ namespace CadmiumC4.IO.Compression
           ///<summary>
           ///Compresses a file.
           ///</summary>
-          public void Compress(FileInfo file)
+          public void Compress(FileInfo file, string finalPath)
           {
                 FragmentFile(file);
                 
