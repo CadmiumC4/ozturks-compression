@@ -25,7 +25,7 @@ namespace CadmiumC4.IO.Compression
         set;
       }
     
-      private async void FragmentFile(FileStream file)
+      private async void FragmentFile(FileInfo file)
        {
            /*The fragment array.*/
             byte[] bytes;
@@ -35,17 +35,19 @@ namespace CadmiumC4.IO.Compression
            int fragment;
            //Let a temporary variable to keep the fragment.
             FileStream fragFile;
+          //And let the stream for the file.
+            FileStream inputFile = file.Open();
            /*First of all, we need to calculate the exponent.*/
             int byteCount = _forceField;
             /*and the fragment count.*/
-            int fragmentCount = file.Length / _forceField;
+            int fragmentCount = inputFile.Length / _forceField;
             /*lastly, add the file-name array*/
            string[] fileNames = new string[fragmentCount];
            /*begin the fragmentation of the file*/
            for(fragment = 0;fragment < fragmentCount;fragment++)
            {
                //set the name of the fragment.
-               fileNames[fragment] = string.Format(@"{0}\{1:X}",temporaryFolder.FullName,fragment);
+               fileNames[fragment] = string.Format(@"{0}\{2}\{1:X}",temporaryFolder.FullName,fragment,file.Name);
            }
            //Create the files(virtually).
            for(fragment = 0; fragment < fragmentCount;fragment++)
@@ -57,18 +59,19 @@ namespace CadmiumC4.IO.Compression
            {
                fragFile = fragments[fragment].Create();
                //debug line
-               if(!(fragFile.CanWrite && file.CanRead))
+               if(!(fragFile.CanWrite && inputFile.CanRead))
                    throw new IOException("Access to the file is denied.");
                //create the byte array.
                bytes = new byte[byteCount];
                
                //Read bytes from the file.
-               await file.ReadAsync(bytes,0, byteCount);
+               await inputFile.ReadAsync(bytes,0, byteCount);
                // And write them into the fragment.
                await fragFile.WriteAsync(bytes,0,byteCount);
                
                //Close the fragment file.
                fragFile.Close();
            }
+        inputFile.Close();
   }
 }
