@@ -15,7 +15,7 @@ namespace CadmiumC4.IO.Compression
           public void Compress(FileInfo file, string finalPath)
           {
                 FragmentFile(file);
-                
+                ZipFile.CreateFromDirectory($@"{TemporaryDirectory.FullPath}\{file.Name}",$@"{Path.ChangeExtension(finalPath,"cpot")}");
           }
     }
 }
