@@ -47,7 +47,7 @@ namespace CadmiumC4.IO.Compression
            }
        }
        
-       private void FragmentFile(FileStream file)
+       private void FragmentFile(FileInfo file)
        {
            /*The fragment array.*/
             byte[] bytes;
@@ -55,6 +55,8 @@ namespace CadmiumC4.IO.Compression
             FileInfo[] fragments;
            /*fragment enumerator*/
            int fragment;
+           //declare a FileStream for the file being fragmented.
+           FileStream inputFile = file.Open();
            //Let a temporary variable to keep the fragment.
             FileStream fragFile;
            /*First of all, we need to calculate the exponent.*/
@@ -63,11 +65,15 @@ namespace CadmiumC4.IO.Compression
             int fragmentCount = file.Length / _forceField;
             /*lastly, add the file-name array*/
            string[] fileNames = new string[fragmentCount];
+           /*create a fragmentation directory*/
+           
+           Directory.CreateDirectory($@"{TemporaryFolder.FullName}\{file.Name}");
+           
            /*begin the fragmentation of the file*/
            for(fragment = 0;fragment < fragmentCount;fragment++)
            {
                //set the name of the fragment.
-               fileNames[fragment] = string.Format(@"{0}\{1:X}",temporaryFolder.FullName,fragment);
+               fileNames[fragment] = string.Format(@"{0}\{2}\{1:X}",TemporaryFolder.FullName,fragment,file.Name);
            }
            //Create the files(virtually).
            for(fragment = 0; fragment < fragmentCount;fragment++)
@@ -85,13 +91,15 @@ namespace CadmiumC4.IO.Compression
                bytes = new byte[byteCount];
                
                //Read bytes from the file.
-               file.Read(bytes,0, byteCount);
+               inputFile.Read(bytes,0, byteCount);
                // And write them into the fragment.
                fragFile.Write(bytes,0,byteCount);
                
                //Close the fragment file.
                fragFile.Close();
            }
+           //Close the file.
+           inputFile.Close();
            
        }
 
